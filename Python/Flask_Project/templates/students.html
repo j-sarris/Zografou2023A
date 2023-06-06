@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{%block title%}
+<title>Students</title>
+ 
+{%endblock%}
+ 
+<h1>Student Data</h1>
+
+
+{% block content %}
+<div class="container mt-4">
+    <a href="{{url_for('new_student')}}" class="btn btn-outline-dark float-end mb-5" role="button">Νέος Σπουδαστής</a>
+</div>
+
+
+<div class="container">
+    <table class="table table-hover">
+        <thead>
+            <th scope="col">#</th>
+            <th scope="col">Επώνυμο</th>
+            <th scope="col">Όνομα</th>
+            <th scope="col">Email</th>
+            <th scope="col">Ηλικία</th>
+        </thead>
+    {% for record in data%}
+
+        <tbody>
+            <tr>
+                <td>{{record.0}}</td>
+                <td>{{record.1}}</td>
+                <td>{{record.2}}</td>
+                <td>{{record.3}}</td>
+                <td>{{record.4}}</td>
+                <td>                
+                    <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modaledit{{record.0}}"><img src="{{url_for('static', filename='img/edit.png')}}" height="24px" width="24px"></button>          
+                    <a href="{{url_for('delete_student', id=record.0)}}" onclick="return confirm('Είστε σίγουροι για τη διαγραφή?')"><img src="{{url_for('static', filename='img/trash.png')}}" height="24px" width="24px"></button></a> 
+
+                  </td>
+            </tr>
+
+        </tbody>
+
+        <!-- The Edit Modal  -->
+        <div class="modal fade" id="modaledit{{record.0}}">
+            <div class="modal-dialog">
+              <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                  <h4 class="modal-title">Στοιχεία υπαλλήλου</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                  <form action="{{url_for('update_student')}}" method="POST">
+
+                      <div class="form-group mb-3">
+                        <label class="mb-2">Όνομα:</label>
+                        <input type="hidden" name="id" value="{{record.0}}">
+                        <input type="text" class="form-control" name="name" value="{{record.2}}">
+                      </div>
+
+                      <div class="form-group mb-3">
+                        <label class="mb-2">Επώνυμο:</label>
+                        <input type="text" class="form-control" name="surname" value="{{record.1}}">
+                      </div>
+
+                      <div class="form-group mb-3">
+                        <label class="mb-2">Email:</label>
+                        <input type="text" class="form-control" name="email" value="{{record.3}}">
+                      </div>
+
+                      <div class="form-group mb-3">
+                        <label class="mb-2">Ηλικία:</label>
+                        <input type="text" class="form-control" name="age" value="{{record.4}}">
+                      </div>                     
+
+                      <div class="form-group mt-4">
+                        <button class="btn btn-outline-dark" type="submit">Ενημέρωση στοιχείων</button>
+                      </div>
+                  </form>
+                </div>
+
+            
+
+              </div>
+            </div>
+          </div>
+        
+    {% endfor %}
+    </table>
+
+</div>
+
+{% endblock%}
