@@ -1,4 +1,7 @@
+# Να διορθωθούν τα λάθη στον παρακάτω κώδικα και να εξηγηθεί η λειτουργία του
+
 string = input("Enter a string: ")
+reverse = ""
 
 for i in string:
     reverse = i + reverse
