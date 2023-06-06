@@ -1,3 +1,3 @@
 - Install flask, flask_wtf, flask_mysqldb, email_validator with pip (e.g. pip install flask, pip install flask_wtf, etc...)
 - Initialize students_db with students table (export of the db included)
-- Make sure to use the correct connect credentials, included in the flask .py file
+- Make sure to use the correct connect credentials, included in the flask flaskapp.py file
