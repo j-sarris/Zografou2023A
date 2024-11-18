@@ -1,0 +1,33 @@
+### Fonts
+
+For the h1, h2
+- Family: [Young Serif](https://fonts.google.com/specimen/Young+Serif)
+- Weights: 400
+- Style: normal
+- Color: hsl(14, 45%, 36;%)
+- Size: 1.8 em
+
+for h3
+- Size: 1.2 em
+- color: hsl(332, 51%, 32%)
+
+
+For the body
+- Family: [Outfit](https://fonts.google.com/specimen/Outfit)
+- Weights: 400, 600, 700
+- background-color: hsl(30, 54%, 90%);
+- font color  hsl(30, 10%, 34%);
+- margin 120px;
+Font size (paragraph): 16px
+
+For the bold parts weight 700
+
+
+Preperation time
+
+background-color: hsl(330, 100%, 98%);
+border-radius: 1rem;
+margin-top: 30px;
+padding: 30px 30px 10px 30px;
+
+
